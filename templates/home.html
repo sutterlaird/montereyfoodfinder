@@ -3,6 +3,17 @@
                         Monterey Restaurant Finder
                       {% endblock %}
                       {% block content %}
-<div class="container"><h1>Find a Restaurant</h1>
+<div class="container">
+    <h1>Find a Restaurant</h1>
+
+    <form method="POST" action="/submit">
+        {{ form.genres }}
+        {{ form.submit }}
+    </form>
+
+    <h3>Choose a Genre</h3>
+
+
+    <h3>Or Filter By Criteria</h3>
 </div>
                       {% endblock %}
