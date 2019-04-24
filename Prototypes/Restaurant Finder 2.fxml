@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Rectangle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="157.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monterey Restaurant Finder!" textAlignment="CENTER" wrappingWidth="466.78369140625">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <Text layoutX="51.0" layoutY="182.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mundos Sandwich &amp; Burger House">
+         <font>
+            <Font size="20.0" />
+         </font>
+      </Text>
+      <Text layoutX="257.0" layoutY="119.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Category: Sandwiches">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Text>
+      <Text layoutX="51.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="170 Webster Street">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="51.0" layoutY="251.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Open Today Until 4PM">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Rectangle arcHeight="5.0" arcWidth="5.0" fill="DODGERBLUE" height="257.0" layoutX="475.0" layoutY="163.0" stroke="BLACK" strokeType="INSIDE" width="256.0" />
+      <Text layoutX="548.0" layoutY="308.0" strokeType="OUTSIDE" strokeWidth="0.0" text="MAP">
+         <font>
+            <Font size="50.0" />
+         </font>
+      </Text>
+      <Text layoutX="51.0" layoutY="386.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Monterey County Health Rating: A">
+         <font>
+            <Font size="17.0" />
+         </font>
+      </Text>
+      <Text layoutX="51.0" layoutY="425.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Yelp Score: 4.6/5">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+      <Text layoutX="51.0" layoutY="463.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Google Reviews Score: 4.6/5">
+         <font>
+            <Font size="16.0" />
+         </font>
+      </Text>
+   </children>
+</AnchorPane>

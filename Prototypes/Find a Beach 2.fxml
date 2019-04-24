@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollBar?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Text layoutX="158.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find a Beach" textAlignment="CENTER" wrappingWidth="466.78369140625">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <ScrollBar layoutX="758.0" layoutY="70.0" orientation="VERTICAL" prefHeight="509.0" prefWidth="17.0" />
+      <TableView layoutY="70.0" prefHeight="509.0" prefWidth="757.0">
+        <columns>
+          <TableColumn prefWidth="75.0" text="Distance" />
+          <TableColumn prefWidth="150.0" text="Name" />
+            <TableColumn minWidth="0.0" prefWidth="0.0" text="Column X" />
+            <TableColumn prefWidth="175.0" text="Summary" />
+            <TableColumn prefWidth="112.0" text="Rating" />
+            <TableColumn prefWidth="244.0" text="Features" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

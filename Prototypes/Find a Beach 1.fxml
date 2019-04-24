@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="579.0" prefWidth="780.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Button layoutX="138.0" layoutY="347.0" mnemonicParsing="false" prefHeight="75.0" prefWidth="505.0" text="Find A Beach" />
+      <Text layoutX="158.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Find a Beach" textAlignment="CENTER" wrappingWidth="466.78369140625">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Text>
+      <TextField layoutX="150.0" layoutY="128.0" text="Zip Code" />
+      <ComboBox layoutX="325.0" layoutY="128.0" prefWidth="150.0" promptText="Distance" />
+      <CheckBox layoutX="150.0" layoutY="177.0" mnemonicParsing="false" text="On-Leash Dogs Allowed" />
+      <CheckBox layoutX="149.0" layoutY="206.0" mnemonicParsing="false" text="Off-Leash Dogs Allowed" />
+      <CheckBox layoutX="149.0" layoutY="236.0" mnemonicParsing="false" text="Fires Allowed" />
+      <CheckBox layoutX="149.0" layoutY="263.0" mnemonicParsing="false" text="Picnic Tables Available" />
+      <CheckBox layoutX="367.0" layoutY="177.0" mnemonicParsing="false" text="Free Parking" />
+      <CheckBox layoutX="367.0" layoutY="206.0" mnemonicParsing="false" text="Safe for Swimming" />
+      <CheckBox layoutX="367.0" layoutY="236.0" mnemonicParsing="false" text="Food Available Nearby" />
+      <CheckBox layoutX="367.0" layoutY="263.0" mnemonicParsing="false" text="Recommended for Kids" />
+   </children>
+</AnchorPane>
