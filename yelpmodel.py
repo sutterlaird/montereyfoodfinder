@@ -127,31 +127,28 @@ class yelpmodel:
         pprint.pprint(response, indent=2)
 
 
-    def main(self):
-        parser = argparse.ArgumentParser()
+    # Demonstration function from original code
+    # def main(self):
+    #     parser = argparse.ArgumentParser()
 
-        parser.add_argument('-q', '--term', dest='term', default=self.DEFAULT_TERM,
-                            type=str, help='Search term (default: %(default)s)')
-        parser.add_argument('-l', '--location', dest='location',
-                            default=self.DEFAULT_LOCATION, type=str,
-                            help='Search location (default: %(default)s)')
+    #     parser.add_argument('-q', '--term', dest='term', default=self.DEFAULT_TERM,
+    #                         type=str, help='Search term (default: %(default)s)')
+    #     parser.add_argument('-l', '--location', dest='location',
+    #                         default=self.DEFAULT_LOCATION, type=str,
+    #                         help='Search location (default: %(default)s)')
 
-        input_values = parser.parse_args()
+    #     input_values = parser.parse_args()
 
-        try:
-            self.query_api(input_values.term, input_values.location)
-        except HTTPError as error:
-            sys.exit(
-                'Encountered HTTP error {0} on {1}:\n {2}\nAbort program.'.format(
-                    error.code,
-                    error.url,
-                    error.read(),
-                )
-            )
+    #     try:
+    #         self.query_api(input_values.term, input_values.location)
+    #     except HTTPError as error:
+    #         sys.exit(
+    #             'Encountered HTTP error {0} on {1}:\n {2}\nAbort program.'.format(
+    #                 error.code,
+    #                 error.url,
+    #                 error.read(),
+    #             )
+    #         )
 
     def findRestaurantByCuisine(self, cuisine):
         self.query_api(cuisine, "Monterey, CA")
-
-
-# model = yelpmodel()
-# model.main()
