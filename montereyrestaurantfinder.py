@@ -4,6 +4,10 @@ from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired
 
+from yelp.client import Client
+MY_API_KEY = "feIeTg1Me0xHPzBn0IB_MiEbjGCC56SIDkH1y7x6S6GydOiGBYb9KipEU5Vjw_krzkXYM-xekgzNvcHtcJ4VdiwGMs2V9W6Kd00_c9QPpPVK8iIMM5cFYc0MDhrKXHYx" #  Replace this with your real API key
+client = Client(MY_API_KEY)
+
 
 # ChooseGenreForm is the class for the form that the user uses to select the genre for a random restaurant
 class ChooseGenreForm(FlaskForm):
