@@ -149,6 +149,9 @@ class yelpmodel:
                 )
             )
 
+    def findRestaurantByCuisine(self, cuisine):
+        self.query_api(cuisine, "Monterey, CA")
+
 
 # model = yelpmodel()
 # model.main()

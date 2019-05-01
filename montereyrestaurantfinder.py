@@ -7,16 +7,16 @@ from wtforms.validators import DataRequired
 from yelpmodel import yelpmodel
 
 model = yelpmodel()
-model.main()
+model.findRestaurantByCuisine("Mexican")
 
-# ChooseGenreForm is the class for the form that the user uses to select the genre for a random restaurant
-class ChooseGenreForm(FlaskForm):
+# ChooseCuisineForm is the class for the form that the user uses to select the genre for a random restaurant
+class ChooseCuisineForm(FlaskForm):
     # SelectField forms a dropdown menu with the specified choices
     # The first value in each tuple is what will get passed to the code,
     # while the second value is what the user sees. So far it seems to pass
     # the second value to the code as well so I'm confused. SL
-    genres = SelectField(
-        'Select Genre',
+    cuisines = SelectField(
+        'Select Cuisine',
         choices=[('american', 'American'), ('mexican', 'Mexican'), ('italian', 'Italian'), ('mediterranean', 'Mediterranean')]
     )
     submit=SubmitField("GO!")
@@ -32,7 +32,7 @@ bootstrap = Bootstrap(app)
 # Render the homepage with the form for the genre selection
 @app.route('/')
 def home():
-    form = ChooseGenreForm()
+    form = ChooseCuisineForm()
     return render_template('home.html', form=form)
 
 
@@ -42,8 +42,8 @@ def home():
 # Display the results of the genre form. So far, just shows the genre very large
 @app.route('/submit', methods=('GET', 'POST'))
 def submit():
-    form = ChooseGenreForm()
-    return render_template('randomSelection.html', genre=dict(form.genres.choices).get(form.genres.data))
+    form = ChooseCuisineForm()
+    return render_template('randomSelection.html', cuisine=dict(form.cuisines.choices).get(form.cuisines.data))
 
 
 
