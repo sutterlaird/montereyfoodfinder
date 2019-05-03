@@ -112,4 +112,8 @@ class yelpmodel:
 
 
     def findRestaurantByCuisine(self, cuisine):
-        return self.query_api(cuisine, "Monterey, CA")
+        restaurantList = self.query_api(cuisine, "Monterey, CA")
+        results = list()
+        for restaurant in restaurantList:
+            results.append(self.get_business(restaurant['id']))
+        return results

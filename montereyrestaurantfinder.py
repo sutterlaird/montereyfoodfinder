@@ -44,16 +44,13 @@ def home():
 
 
 
-# Display the results of the genre form. So far, just shows the genre very large
+# Display the results of the cuisine form. So far, just a list of the names of the restaurants in the cuisine
+# The next step will be to choose a random restaurant and generate a page with all of its information
 @app.route('/submit', methods=('GET', 'POST'))
 def submit():
     form = ChooseCuisineForm()
-    results = list()
     cuisine=dict(form.cuisines.choices).get(form.cuisines.data)
-    restaurantList = model.findRestaurantByCuisine(cuisine)
-    for restaurant in restaurantList:
-        results.append(model.get_business(restaurant['id']))
-    return render_template('randomSelection.html', results=results)
+    return render_template('randomSelection.html', results=model.findRestaurantByCuisine(cuisine))
 
 
 
