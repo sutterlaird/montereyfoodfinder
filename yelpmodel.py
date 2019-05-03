@@ -43,7 +43,7 @@ class yelpmodel:
     # Defaults for our simple example.
     DEFAULT_TERM = 'dinner'
     DEFAULT_LOCATION = 'San Francisco, CA'
-    SEARCH_LIMIT = 300
+    SEARCH_LIMIT = 50
 
 
     def request(self, host, path, api_key, url_params=None):
@@ -79,14 +79,14 @@ class yelpmodel:
         """
 
         url_params = {
+            'location': location.replace(' ', '+'),
             'term': term.replace(' ', '+'),
-            'location': location.replace(' ', '+')
-            # 'limit': self.SEARCH_LIMIT
+            'limit': self.SEARCH_LIMIT
         }
         return self.request(self.API_HOST, self.SEARCH_PATH, api_key, url_params=url_params)
 
 
-    def get_business(self, api_key, business_id):
+    def get_business(self, business_id):
         """Query the Business API by a business ID.
         Args:
             business_id (str): The ID of the business to query.
@@ -95,7 +95,7 @@ class yelpmodel:
         """
         business_path = self.BUSINESS_PATH + business_id
 
-        return self.request(self.API_HOST, business_path, api_key)
+        return self.request(self.API_HOST, business_path, self.API_KEY)
 
 
     def query_api(self, term, location):

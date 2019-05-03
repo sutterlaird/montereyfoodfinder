@@ -52,8 +52,7 @@ def submit():
     cuisine=dict(form.cuisines.choices).get(form.cuisines.data)
     restaurantList = model.findRestaurantByCuisine(cuisine)
     for restaurant in restaurantList:
-        results.append(model.get_business(model.API_KEY, restaurant['id']))
-    # print(results)
+        results.append(model.get_business(restaurant['id']))
     return render_template('randomSelection.html', results=results)
 
 
