@@ -35,17 +35,15 @@ from urllib.parse import urlencode
 class yelpmodel:
     API_KEY="feIeTg1Me0xHPzBn0IB_MiEbjGCC56SIDkH1y7x6S6GydOiGBYb9KipEU5Vjw_krzkXYM-xekgzNvcHtcJ4VdiwGMs2V9W6Kd00_c9QPpPVK8iIMM5cFYc0MDhrKXHYx" 
 
-
     # API constants, you shouldn't have to change these.
     API_HOST = 'https://api.yelp.com'
     SEARCH_PATH = '/v3/businesses/search'
     BUSINESS_PATH = '/v3/businesses/'  # Business ID will come after slash.
 
-
     # Defaults for our simple example.
     DEFAULT_TERM = 'dinner'
     DEFAULT_LOCATION = 'San Francisco, CA'
-    SEARCH_LIMIT = 3
+    SEARCH_LIMIT = 300
 
 
     def request(self, host, path, api_key, url_params=None):
@@ -66,8 +64,6 @@ class yelpmodel:
             'Authorization': 'Bearer %s' % api_key,
         }
 
-        print(u'Querying {0} ...'.format(url))
-
         response = requests.request('GET', url, headers=headers, params=url_params)
 
         return response.json()
@@ -84,8 +80,8 @@ class yelpmodel:
 
         url_params = {
             'term': term.replace(' ', '+'),
-            'location': location.replace(' ', '+'),
-            'limit': self.SEARCH_LIMIT
+            'location': location.replace(' ', '+')
+            # 'limit': self.SEARCH_LIMIT
         }
         return self.request(self.API_HOST, self.SEARCH_PATH, api_key, url_params=url_params)
 
@@ -112,43 +108,8 @@ class yelpmodel:
 
         businesses = response.get('businesses')
 
-        if not businesses:
-            print(u'No businesses for {0} in {1} found.'.format(term, location))
-            return
+        return businesses
 
-        business_id = businesses[0]['id']
-
-        print(u'{0} businesses found, querying business info ' \
-            'for the top result "{1}" ...'.format(
-                len(businesses), business_id))
-        response = self.get_business(self.API_KEY, business_id)
-
-        print(u'Result for business "{0}" found:'.format(business_id))
-        pprint.pprint(response, indent=2)
-
-
-    # Demonstration function from original code
-    # def main(self):
-    #     parser = argparse.ArgumentParser()
-
-    #     parser.add_argument('-q', '--term', dest='term', default=self.DEFAULT_TERM,
-    #                         type=str, help='Search term (default: %(default)s)')
-    #     parser.add_argument('-l', '--location', dest='location',
-    #                         default=self.DEFAULT_LOCATION, type=str,
-    #                         help='Search location (default: %(default)s)')
-
-    #     input_values = parser.parse_args()
-
-    #     try:
-    #         self.query_api(input_values.term, input_values.location)
-    #     except HTTPError as error:
-    #         sys.exit(
-    #             'Encountered HTTP error {0} on {1}:\n {2}\nAbort program.'.format(
-    #                 error.code,
-    #                 error.url,
-    #                 error.read(),
-    #             )
-    #         )
 
     def findRestaurantByCuisine(self, cuisine):
-        self.query_api(cuisine, "Monterey, CA")
+        return self.query_api(cuisine, "Monterey, CA")

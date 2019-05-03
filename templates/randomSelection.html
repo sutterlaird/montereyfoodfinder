@@ -5,7 +5,9 @@
                       {% block content %}
 
 <div class="container">
-    <h1>{{ cuisine }}</h1>
+    {% for restaurant in results %}
+    {{ restaurant.name }}<br/>
+    {% endfor %}
 
 </div>
                         {% endblock %}

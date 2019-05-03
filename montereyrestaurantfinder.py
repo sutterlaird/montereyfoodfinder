@@ -7,7 +7,12 @@ from wtforms.validators import DataRequired
 from yelpmodel import yelpmodel
 
 model = yelpmodel()
-model.findRestaurantByCuisine("Mexican")
+# restaurantList = model.findRestaurantByCuisine("Mexican")
+# results = list()
+# for restaurant in restaurantList:
+#     results.append(model.get_business(model.API_KEY, restaurant['id']))
+# print(results[0])
+# model.findRestaurantByCuisine("Mexican")
 
 # ChooseCuisineForm is the class for the form that the user uses to select the genre for a random restaurant
 class ChooseCuisineForm(FlaskForm):
@@ -43,13 +48,19 @@ def home():
 @app.route('/submit', methods=('GET', 'POST'))
 def submit():
     form = ChooseCuisineForm()
-    return render_template('randomSelection.html', cuisine=dict(form.cuisines.choices).get(form.cuisines.data))
+    results = list()
+    cuisine=dict(form.cuisines.choices).get(form.cuisines.data)
+    restaurantList = model.findRestaurantByCuisine(cuisine)
+    for restaurant in restaurantList:
+        results.append(model.get_business(model.API_KEY, restaurant['id']))
+    # print(results)
+    return render_template('randomSelection.html', results=results)
 
 
 
 
 
-# This is necessary according to StackOverflow. Not sure why or what it does
+# This is necessary for forms according to StackOverflow. Not sure why or what it does
 app.config['SECRET_KEY'] = 'any secret string'
 
 # Code to allow app to be run normally from command line
