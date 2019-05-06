@@ -4,11 +4,10 @@
                       {% endblock %}
                       {% block content %}
 
-<div style="background: #D0D0D0;">
 <div class="container">
-<h2 style="padding: 80px;"></h2>
-    <h1>{{ cuisine }}</h1>
-    <img src="https://www.yelp.com/biz_photos/la-mia-cucina-pacific-grove?select=FqGkW0WSgL0TWgfCUFsMdw" alt="picture">
+    <h1>{{ results.name }}</h1>
+    <br />
+    <img src="{{ results.photos[0] }}" alt="picture">
     <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ4RtxuqDkjYAR1gn5XbknKMI&key=AIzaSyBk3v4loCpNpihfa0iiE7szHMb9b7bnTYU" allowfullscreen>
     </iframe>
 </div>
