@@ -24,14 +24,11 @@ class ChooseCuisineForm(FlaskForm):
         'Select Cuisine',
         choices=[('american', 'American'), ('mexican', 'Mexican'), ('italian', 'Italian'), ('mediterranean', 'Mediterranean')]
     )
-    submit=SubmitField("GO!")
+    submit=SubmitField('Find me food!')
     
 
 app = Flask(__name__)
 bootstrap = Bootstrap(app)
-
-
-
 
 
 # Render the homepage with the form for the genre selection
