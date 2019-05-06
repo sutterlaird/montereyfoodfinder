@@ -8,8 +8,6 @@ from PyQt5.QtCore import pyqtSlot
 from PyQt5.QtWidgets import (QApplication, QCheckBox, QGridLayout, QGroupBox,
                              QMenu, QPushButton, QRadioButton, QVBoxLayout, QWidget, QSlider)
 
-
-
 # ChooseGenreForm is the class for the form that the user uses to select the genre for a random restaurant
 class ChooseGenreForm(FlaskForm):
     # SelectField forms a dropdown menu with the specified choices
