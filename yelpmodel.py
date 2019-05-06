@@ -123,7 +123,6 @@ class yelpmodel:
         return results
 
 
-
     # Gets one random restaurant with the specified cuisine and returns a dictionary of its data
     def getRandomRestaurantByCuisine(self, cuisine):
         # RestaurantList is a list of all of the Yelp IDs of restaurants in Monterey fitting the cuisine
