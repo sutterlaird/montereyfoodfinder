@@ -21,6 +21,7 @@ import pprint
 import requests
 import sys
 import urllib
+import random
 
 from urllib.error import HTTPError
 from urllib.parse import quote
@@ -112,8 +113,8 @@ class yelpmodel:
 
 
     def findRestaurantByCuisine(self, cuisine):
+        """Changed it so that this function returns a random restaurant"""
+
         restaurantList = self.query_api(cuisine, "Monterey, CA")
-        results = list()
-        for restaurant in restaurantList:
-            results.append(self.get_business(restaurant['id']))
-        return results
+        oneRandomRestaurant = random.choice(restaurantList)
+        return self.get_business(oneRandomRestaurant['id'])
