@@ -6,13 +6,8 @@ from wtforms.validators import DataRequired
 
 from yelpmodel import yelpmodel
 
+# Create the model for yelp queries
 model = yelpmodel()
-# restaurantList = model.findRestaurantByCuisine("Mexican")
-# results = list()
-# for restaurant in restaurantList:
-#     results.append(model.get_business(model.API_KEY, restaurant['id']))
-# print(results[0])
-# model.findRestaurantByCuisine("Mexican")
 
 # ChooseCuisineForm is the class for the form that the user uses to select the genre for a random restaurant
 class ChooseCuisineForm(FlaskForm):
