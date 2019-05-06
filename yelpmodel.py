@@ -113,6 +113,13 @@ class yelpmodel:
 
 
     def findRestaurantByCuisine(self, cuisine):
+<<<<<<< HEAD
+        """Changed it so that this function returns a random restaurant"""
+
+        restaurantList = self.query_api(cuisine, "Monterey, CA")
+        oneRandomRestaurant = random.choice(restaurantList)
+        return self.get_business(oneRandomRestaurant['id'])
+=======
         # RestaurantList is a list of all of the Yelp IDs of restaurants in Monterey fitting the cuisine
         restaurantList = self.query_api(cuisine, "Monterey, CA")
         # Results will be a list of dictionaries of all of the restaurants' information
@@ -131,3 +138,4 @@ class yelpmodel:
         oneRandomRestaurant = random.choice(restaurantList)
         # Get and return that restaurant's dictionary
         return self.get_business(oneRandomRestaurant['id'])
+>>>>>>> db8bf8294eb65de94112fa8c084aded72822bac6
