@@ -70,11 +70,12 @@ class yelpmodel:
         return response.json()
 
 
-    def search(self, api_key, term, location):
+    def search(self, api_key, term, location, open_now):
         """Query the Search API by a search term and location.
         Args:
             term (str): The search term passed to the API.
             location (str): The search location passed to the API.
+            open_now (bool): The search open_now passed to the API 
         Returns:
             dict: The JSON response from the request.
         """
@@ -82,6 +83,7 @@ class yelpmodel:
         url_params = {
             'location': location.replace(' ', '+'),
             'term': term.replace(' ', '+'),
+            'open_now': open_now, 
             'limit': self.SEARCH_LIMIT
         }
         return self.request(self.API_HOST, self.SEARCH_PATH, api_key, url_params=url_params)
@@ -99,13 +101,13 @@ class yelpmodel:
         return self.request(self.API_HOST, business_path, self.API_KEY)
 
 
-    def query_api(self, term, location):
+    def query_api(self, term, location, open_now):
         """Queries the API by the input values from the user.
         Args:
             term (str): The search term to query.
             location (str): The location of the business to query.
         """
-        response = self.search(self.API_KEY, term, location)
+        response = self.search(self.API_KEY, term, location, open_now)
 
         businesses = response.get('businesses')
 
@@ -115,6 +117,6 @@ class yelpmodel:
     def findRestaurantByCuisine(self, cuisine):
         """Changed it so that this function returns a random restaurant"""
 
-        restaurantList = self.query_api(cuisine, "Monterey, CA")
+        restaurantList = self.query_api(cuisine, "Monterey, CA", True)
         oneRandomRestaurant = random.choice(restaurantList)
         return self.get_business(oneRandomRestaurant['id'])
