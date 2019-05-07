@@ -4,11 +4,23 @@
     {% endblock %}
  {% block content %}
 
+<div style="background: #D0D0D0;">
+	<style> 
+		#temp{
+			/* css here */ 
+			max-width:40%; 
+			max-height:40%;
+		}
+	</style>
 <div class="container">
-    <h1>{{ results.name }}</h1>
-    <br />
-    <img src="{{ results.photos[0] }}" alt="picture">
-    <iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ4RtxuqDkjYAR1gn5XbknKMI&key=AIzaSyBk3v4loCpNpihfa0iiE7szHMb9b7bnTYU" allowfullscreen>
-    </iframe>
+	<br/> 
+    <h1><center>{{ results.name }}</center></h1>
+    <br/>
+    <img id="temp" src="{{ results.photos[0] }}" alt="picture" >
+    <h3> Address: {{ results.location.display_address[0] }} </h3>
+    <br/> 
+    <br/> 
+    <center><iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ4RtxuqDkjYAR1gn5XbknKMI&key=AIzaSyBk3v4loCpNpihfa0iiE7szHMb9b7bnTYU" allowfullscreen>
+    </iframe></center>
 </div>
                         {% endblock %}
