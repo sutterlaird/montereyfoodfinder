@@ -2,25 +2,56 @@
 	{% block title %}
  	Found By Cuisine
     {% endblock %}
+ 
  {% block content %}
+<style> 
+    * {
+        box-sizing: border-box;
+    }
 
+    .column {
+        float: left;
+        width: 50%;
+        padding: 10px;
+    }
+
+    .h3indent{
+        text-indent: 108px;
+    }
+
+    #sizing{
+        max-height: 30%;
+        max-width: 100%; 
+    }
+    h4{
+        padding: 5px;
+        margin-bottom: 0px;
+    }
+</style>
+
+<body> 
+<h1><center><u> {{ results.name }} </u></center></h1>
 <div style="background: #D0D0D0;">
-	<style> 
-		#temp{
-			/* css here */ 
-			max-width:40%; 
-			max-height:40%;
-		}
-	</style>
-<div class="container">
-	<br/> 
-    <h1><center>{{ results.name }}</center></h1>
-    <br/>
-    <img id="temp" src="{{ results.photos[0] }}" alt="picture" >
-    <h3> Address: {{ results.location.display_address[0] }} </h3>
+<div class="container"> 
+    <h4><a href="/">Go Back</a></h4> 
+    <div class="column"> 
+        <img id="sizing" src="{{ results.image_url }}" alt="picture" style="width:100% padding-left: 10px">
+        <!-- photos[0] --> 
+    </div>
+    <div class="column">
+        <h3> Address: {{ results.location.display_address[0] }} </h3>
+        <h3 class="h3indent"> {{ results.location.display_address[1] }} </h3>
+        <h3> Phone: {{ results.display_phone }} </h3> 
+        <h3> Rating: {{ results.rating }} </h3>
+        <h3> Price: {{ results.price }} </h3>  
+        <h3><a href= " {{ results.url }} " target="_blank"> '{{ results.name }}' Reviews</a></h3>  
+    </div>
+
     <br/> 
-    <br/> 
-    <center><iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ4RtxuqDkjYAR1gn5XbknKMI&key=AIzaSyBk3v4loCpNpihfa0iiE7szHMb9b7bnTYU" allowfullscreen>
-    </iframe></center>
+    <center><iframe width="600" height="450" frameborder="0" style="border:0" src="https://www.google.com/maps/embed/v1/place?q=place_id:ChIJ4RtxuqDkjYAR1gn5XbknKMI&key=AIzaSyBk3v4loCpNpihfa0iiE7szHMb9b7bnTYU" allowfullscreen> </iframe></center>
 </div>
-                        {% endblock %}
+
+</div>
+</body>
+
+{% endblock %}
