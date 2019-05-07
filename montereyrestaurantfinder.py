@@ -33,9 +33,6 @@ def home():
     return render_template('home.html', form=form)
 
 
-
-
-
 # Display the results of the cuisine form. So far, just a list of the names of the restaurants in the cuisine
 # The next step will be to choose a random restaurant and generate a page with all of its information
 @app.route('/submit', methods=('GET', 'POST'))
@@ -43,9 +40,6 @@ def submit():
     form = ChooseCuisineForm()
     cuisine=dict(form.cuisines.choices).get(form.cuisines.data)
     return render_template('randomSelection.html', results=model.findRestaurantByCuisine(cuisine))
-
-
-
 
 
 # This is necessary for forms according to StackOverflow. Not sure why or what it does
