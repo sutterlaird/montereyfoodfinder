@@ -5,6 +5,16 @@
  
  {% block content %}
 <style> 
+    h1 {
+        border: 5px dotted black;
+        background-color:#FFF;
+    }
+    h4 {
+        padding: 5px;
+        margin-bottom: 0px;
+        margin-top: 0px;
+    }
+
     body {
         background-color:#D0D0D0;
     }
@@ -27,14 +37,11 @@
         max-height: 30%;
         max-width: 100%; 
     }
-    h4{
-        padding: 5px;
-        margin-bottom: 0px;
-    }
 </style>
 
-<body> 
 <h1><center><u> {{ results.name }} </u></center></h1>
+
+<body> 
 <div class="container"> 
     <h4><a href="/">Go Back</a></h4> 
     <div class="column"> 
@@ -43,7 +50,8 @@
     </div>
     <div class="column">
         <h3> Address: {{ results.location.display_address[0] }} </h3>
-        <h3 class="h3indent"> {{ results.location.display_address[1] }} </h3>
+        <h3 class="h3indent"> {{ results.location.display_address[1] }}</h3>
+        <h3 class="h3indent"> {{ results.location.display_address[2] }}</h3>
         <h3> Phone: {{ results.display_phone }} </h3> 
         <h3> Rating: {{ results.rating }} </h3>
         <h3> Price: {{ results.price }} </h3>  
@@ -55,6 +63,6 @@
 </div>
 
 </div>
-</body>
+</body> 
 
 {% endblock %}
