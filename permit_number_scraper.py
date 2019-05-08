@@ -7,10 +7,10 @@ cursor = db.cursor()
 
 my_site = "http://www.decadeonline.com/insp.phtml?agency=mon&violsortfield=TB_CORE_INSPECTION_VIOL.VIOLATION_CODE&record_id=PR0"
 
-id = 601000
+id = 604999
 # id = 612513
 
-while id < 605000:
+while id < 610000:
     # Request headers
     req = Request(
         my_site + str(id),
