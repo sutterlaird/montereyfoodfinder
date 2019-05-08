@@ -1,5 +1,8 @@
 import pymysql
 
+# Code to Remove &amp;
+# UPDATE `restaurants` SET `name`=REPLACE(`name`, "&amp;", "&")
+
 class healthinspectionmodel():
     db = pymysql.connect("sutterlaird.com","sutterla_cst205","restaurant","sutterla_montereyrestaurants" )
 
