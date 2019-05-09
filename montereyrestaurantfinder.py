@@ -17,7 +17,7 @@ class ChooseCuisineForm(FlaskForm):
     # the second value to the code as well so I'm confused. SL
     cuisines = SelectField(
         'Select Cuisine',
-        choices=[('american', 'American'), ('mexican', 'Mexican'), ('italian', 'Italian'), ('mediterranean', 'Mediterranean')]
+        choices=[('american', 'American'), ('mexican', 'Mexican'), ('italian', 'Italian'), ('mediterranean', 'Mediterranean'),('random', 'Random')]
     )
     submit=SubmitField('Find me food!')
     
@@ -39,7 +39,10 @@ def home():
 def submit():
     form = ChooseCuisineForm()
     cuisine=dict(form.cuisines.choices).get(form.cuisines.data)
-    return render_template('randomSelection.html', results=model.findRestaurantByCuisine(cuisine))
+    if(form.cuisines.data == 'random'):
+        return render_template('randomSelection.html', results=model.getRandomRestaurantByCuisine(cuisine))
+    else:
+        return render_template('randomSelection.html', results=model.findRestaurantByCuisine(cuisine))
 
 
 # This is necessary for forms according to StackOverflow. Not sure why or what it does
