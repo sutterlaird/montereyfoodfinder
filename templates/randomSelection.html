@@ -54,8 +54,15 @@
         <h3 class="h3indent"> {{ results.location.display_address[2] }}</h3>
         <h3> Phone: {{ results.display_phone }} </h3> 
         <h3> Rating: {{ results.rating }} </h3>
-        <h3> Price: {{ results.price }} </h3>  
-        <h3> Health: {{ inspection }} </h3>  
+        <h3> Price: {{ results.price }} </h3>
+        {% if inspection[0] %}
+            <h3> Most Recent Health Inspection: </h3>
+            <h4> {{ inspection[1] }} </h4>
+            <h4> {{ inspection[2] }} </h4>
+            <h4><a href="{{ inspection[3] }}">Full Inspection Report</a></h4>
+            {% else %}
+            <h3>Health Data Not Available</h3>
+        {% endif %}  
         <h3><a href= " {{ results.url }} " target="_blank"> '{{ results.name }}' Reviews</a></h3>  
     </div>
 
