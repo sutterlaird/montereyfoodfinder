@@ -3,6 +3,7 @@ from flask_bootstrap import Bootstrap
 from flask_wtf import FlaskForm
 from wtforms import StringField, SelectField, SubmitField
 from wtforms.validators import DataRequired
+import random
 
 from yelpmodel import yelpmodel
 from healthinspectionmodel import healthinspectionmodel
@@ -10,7 +11,7 @@ from healthinspectionmodel import healthinspectionmodel
 # Create the model for yelp queries
 model = yelpmodel()
 
-# ChooseCuisineForm is the class for the form that the user uses to select the genre for a random restaurant
+# ChooseCuisineForm is the class for the form that the user uses to select the cuisine for a random restaurant
 class ChooseCuisineForm(FlaskForm):
     # SelectField forms a dropdown menu with the specified choices
     # The first value in each tuple is what will get passed to the code,
@@ -39,16 +40,18 @@ def home():
 @app.route('/submit', methods=('GET', 'POST'))
 def submit():
     form = ChooseCuisineForm()
+    # Get the selected cuisine from the form
     cuisine=dict(form.cuisines.choices).get(form.cuisines.data)
-    if(form.cuisines.data == 'random'):
-        return render_template('randomSelection.html', results=model.getRandomRestaurantByCuisine(cuisine))
-    else:
-        return render_template('randomSelection.html', results=model.findRestaurantByCuisine(cuisine))
-    foundRestaurant = model.findRestaurantByCuisine(cuisine)
-    # print(foundRestaurant)
+    # While it is random, choose a random cuisine. This keeps Random from choosing Random
+    while cuisine == "Random":
+        randomCuisine = random.choice(form.cuisines.choices)
+        cuisine = randomCuisine[1]
+    # Use the Yelp model to get one random restaurant with the cuisine
+    foundRestaurant = model.getRandomRestaurantByCuisine(cuisine)
+    # Use the health inspection model to get the health inspection data
     healthModel = healthinspectionmodel()
-    healthModel.getRestaurantPermitNum(foundRestaurant["name"].upper())
-    return render_template('randomSelection.html', results=foundRestaurant)
+    inspectionString = healthModel.getRestaurantInformation(foundRestaurant["name"].upper())
+    return render_template('randomSelection.html', results=foundRestaurant, inspection=inspectionString)
 
 
 # This is necessary for forms according to StackOverflow. Not sure why or what it does

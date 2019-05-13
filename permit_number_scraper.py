@@ -5,7 +5,7 @@ import pymysql
 db = pymysql.connect("sutterlaird.com","sutterla_cst205","restaurant","sutterla_montereyrestaurants" )
 cursor = db.cursor()
 
-my_site = "http://www.decadeonline.com/insp.phtml?agency=mon&violsortfield=TB_CORE_INSPECTION_VIOL.VIOLATION_CODE&record_id=PR0"
+root_url = "http://www.decadeonline.com/insp.phtml?agency=mon&violsortfield=TB_CORE_INSPECTION_VIOL.VIOLATION_CODE&record_id=PR0"
 
 id = 609999
 # id = 612513
@@ -13,7 +13,7 @@ id = 609999
 while id < 700000:
     # Request headers
     req = Request(
-        my_site + str(id),
+        root_url + str(id),
         headers={'User-Agent': 'Mozilla/5.0'}
     )
 
