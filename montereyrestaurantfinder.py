@@ -19,7 +19,7 @@ class ChooseCuisineForm(FlaskForm):
     # the second value to the code as well so I'm confused. SL
     cuisines = SelectField(
         'Select Cuisine',
-        choices=[('american', 'American'), ('mexican', 'Mexican'), ('italian', 'Italian'), ('mediterranean', 'Mediterranean'),('random', 'Random')]
+        choices=[('american', 'American'), ('mexican', 'Mexican'), ('italian', 'Italian'), ('mediterranean', 'Mediterranean'), ('sandwiches', 'Sandwiches'), ('burgers', 'Burgers'), ('seafood', 'Seafood'), ('random', 'Random')]
     )
     submit=SubmitField('Find me food!')
     
