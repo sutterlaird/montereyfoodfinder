@@ -83,7 +83,8 @@ class yelpmodel:
 
         url_params = {
             'location': location.replace(' ', '+'),
-            'term': term.replace(' ', '+'),
+            # 'term': term.replace(' ', '+'),
+            'categories': term.lower(),
             'open_now': open_now, 
             'limit': self.SEARCH_LIMIT
         }
